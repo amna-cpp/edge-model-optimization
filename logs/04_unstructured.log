@@ -1,0 +1,61 @@
+
+==============================================================================
+  Unstructured iterative pruning | device=mps | baseline acc 93.43%
+==============================================================================
+cumulative sparsity schedule: ['43.9%', '70.6%', '84.2%', '89.3%', '90.0%']
+
+--- iteration 1/5: target 43.9% | achieved 43.92% | accuracy right after pruning 93.32%
+    [iter1] epoch 1/1 | loss 0.0644 | train 97.93% | test 93.46%
+
+--- iteration 2/5: target 70.6% | achieved 70.56% | accuracy right after pruning 89.05%
+    [iter2] epoch 1/1 | loss 0.0610 | train 98.14% | test 93.37%
+
+--- iteration 3/5: target 84.2% | achieved 84.24% | accuracy right after pruning 50.64%
+    [iter3] epoch 1/1 | loss 0.0798 | train 98.05% | test 93.21%
+
+--- iteration 4/5: target 89.3% | achieved 89.28% | accuracy right after pruning 74.43%
+    [iter4] epoch 1/1 | loss 0.0774 | train 97.75% | test 93.21%
+
+--- iteration 5/5: target 90.0% | achieved 90.00% | accuracy right after pruning 90.73%
+    [iter5] epoch 1/1 | loss 0.0678 | train 97.94% | test 93.01%
+
+--- final fine-tuning (6 epochs, mask kept) ---
+    [final] epoch 1/6 | loss 0.0694 | train 97.83% | test 92.43%
+    [final] epoch 2/6 | loss 0.0616 | train 98.03% | test 92.86%
+    [final] epoch 3/6 | loss 0.0487 | train 98.57% | test 93.22%
+    [final] epoch 4/6 | loss 0.0365 | train 98.96% | test 93.41%
+    [final] epoch 5/6 | loss 0.0296 | train 99.19% | test 93.51%
+    [final] epoch 6/6 | loss 0.0262 | train 99.35% | test 93.47%
+
+==============================================================================
+  Making pruning permanent (prune.remove)
+==============================================================================
+sparsity before remove: 90.0000% | after remove: 90.0000%
+accuracy after remove : 93.47%  (must equal 93.47%)
+
+Per-layer sparsity:
+  conv1                        (64, 3, 3, 3)          sparsity   9.5%
+  layer1.0.conv1               (64, 64, 3, 3)         sparsity  45.3%
+  layer1.0.conv2               (64, 64, 3, 3)         sparsity  40.1%
+  layer1.1.conv1               (64, 64, 3, 3)         sparsity  40.7%
+  layer1.1.conv2               (64, 64, 3, 3)         sparsity  41.1%
+  layer2.0.conv1               (128, 64, 3, 3)        sparsity  46.2%
+  layer2.0.conv2               (128, 128, 3, 3)       sparsity  51.2%
+  layer2.0.shortcut.0          (128, 64, 1, 1)        sparsity  23.4%
+  layer2.1.conv1               (128, 128, 3, 3)       sparsity  52.5%
+  layer2.1.conv2               (128, 128, 3, 3)       sparsity  56.6%
+  layer3.0.conv1               (256, 128, 3, 3)       sparsity  60.6%
+  layer3.0.conv2               (256, 256, 3, 3)       sparsity  68.4%
+  layer3.0.shortcut.0          (256, 128, 1, 1)       sparsity  34.1%
+  layer3.1.conv1               (256, 256, 3, 3)       sparsity  70.4%
+  layer3.1.conv2               (256, 256, 3, 3)       sparsity  80.8%
+  layer4.0.conv1               (512, 256, 3, 3)       sparsity  93.3%
+  layer4.0.conv2               (512, 512, 3, 3)       sparsity  99.1%
+  layer4.0.shortcut.0          (512, 256, 1, 1)       sparsity  64.5%
+  layer4.1.conv1               (512, 512, 3, 3)       sparsity  99.6%
+  layer4.1.conv2               (512, 512, 3, 3)       sparsity  99.9%
+  fc                           (10, 512)              sparsity   8.0%
+
+non-zero weights: 1,116,436 / 11,164,352  (90.00% sparse)
+accuracy: baseline 93.43% -> pruned 93.47%  (+0.04 pts)
+saved -> /Users/amnahameed/Downloads/assignment3/checkpoints/resnet18_unstructured_pruned.pth  (44.77 MB raw, 7.09 MB gzip)

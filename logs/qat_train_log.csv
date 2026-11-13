@@ -1,0 +1,4 @@
+epoch,train_loss,train_acc,fakequant_test_acc,epoch_time_s
+1,0.0588,98.03,93.23,1017.1
+2,0.0572,98.07,93.26,884.5
+3,0.0466,98.40,93.20,768.0

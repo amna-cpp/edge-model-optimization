@@ -1,0 +1,6 @@
+model,key,accuracy_pct,agreement_with_fp32_pct,size_mb,latency_bs1_mean_ms,latency_bs1_p50_ms,latency_bs1_p95_ms,throughput_img_s,threads,onnx_file,speedup_vs_fp32_bs1
+FP32 baseline,fp32,93.43,100.0,44.69,11.29,11.274,11.409,92.7,1,resnet18_fp32.onnx,1.0
+PTQ INT8 (QDQ),ptq,93.42,99.66,11.24,12.048,11.896,12.642,91.1,1,resnet18_ptq_int8.onnx,0.94
+QAT INT8 (QDQ),qat,93.27,97.88,11.22,12.016,11.821,11.97,90.2,1,resnet18_qat_int8.onnx,0.94
+Unstructured pruned,unstructured,93.47,96.78,44.69,11.281,11.27,11.409,92.8,1,resnet18_unstructured_pruned.onnx,1.0
+Structured pruned,structured,93.34,95.53,15.65,6.14,6.13,6.241,166.4,1,resnet18_structured_pruned.onnx,1.84

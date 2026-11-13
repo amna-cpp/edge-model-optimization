@@ -1,0 +1,10 @@
+input          truth      |      FP32 baseline      |         PTQ INT8        |         QAT INT8        |   Unstructured pruned   |    Structured pruned    
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+test[6044]     horse      |      horse  99.9%    ok   |      horse  99.9%    ok   |      horse 100.0%    ok   |      horse  99.9%    ok   |      horse  99.9%    ok   
+test[2890]     dog        |        dog  70.8%    ok   |        dog  69.4%    ok   |        dog  46.2%    ok   |        dog  98.3%    ok   |        dog  98.4%    ok   
+test[9399]     horse      |      horse 100.0%    ok   |      horse 100.0%    ok   |      horse 100.0%    ok   |      horse 100.0%    ok   |      horse 100.0%    ok   
+test[1917]     ship       |       ship 100.0%    ok   |       ship 100.0%    ok   |       ship 100.0%    ok   |       ship 100.0%    ok   |       ship 100.0%    ok   
+test[4919]     ship       |       ship 100.0%    ok   |       ship 100.0%    ok   |       ship 100.0%    ok   |       ship 100.0%    ok   |       ship 100.0%    ok   
+test[1729]     ship       |       ship 100.0%    ok   |       ship 100.0%    ok   |       ship 100.0%    ok   |       ship 100.0%    ok   |       ship 100.0%    ok   
+test[429]      frog       |       frog 100.0%    ok   |       frog 100.0%    ok   |       frog 100.0%    ok   |       frog 100.0%    ok   |       frog 100.0%    ok   
+test[7532]     automobile | automobile  99.9%    ok   | automobile  99.9%    ok   | automobile 100.0%    ok   | automobile 100.0%    ok   | automobile 100.0%    ok   

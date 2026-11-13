@@ -1,0 +1,29 @@
+
+==============================================================================
+  Baseline FP32 ResNet-18 | device=mps | params=11,173,962
+==============================================================================
+epoch   1/20 | loss 1.3666 | train  50.53% | test  58.61% | lr 0.0181 | 113.9s
+epoch   2/20 | loss 0.9054 | train  68.46% | test  67.61% | lr 0.0520 | 123.4s
+epoch   3/20 | loss 0.7209 | train  75.08% | test  74.14% | lr 0.0860 | 134.1s
+epoch   4/20 | loss 0.6084 | train  79.14% | test  75.36% | lr 0.1000 | 129.2s
+epoch   5/20 | loss 0.5260 | train  82.00% | test  79.81% | lr 0.0990 | 132.9s
+epoch   6/20 | loss 0.4729 | train  83.83% | test  78.73% | lr 0.0962 | 166.0s
+epoch   7/20 | loss 0.4329 | train  85.01% | test  83.46% | lr 0.0916 | 146.6s
+epoch   8/20 | loss 0.3993 | train  86.16% | test  84.52% | lr 0.0853 | 186.2s
+epoch   9/20 | loss 0.3736 | train  87.31% | test  84.41% | lr 0.0778 | 166.0s
+epoch  10/20 | loss 0.3482 | train  87.99% | test  84.47% | lr 0.0691 | 122.0s
+epoch  11/20 | loss 0.3246 | train  88.81% | test  86.05% | lr 0.0597 | 152.9s
+epoch  12/20 | loss 0.3038 | train  89.59% | test  86.88% | lr 0.0500 | 177.7s
+epoch  13/20 | loss 0.2812 | train  90.31% | test  86.18% | lr 0.0402 | 161.1s
+epoch  14/20 | loss 0.2535 | train  91.21% | test  87.46% | lr 0.0308 | 182.3s
+epoch  15/20 | loss 0.2198 | train  92.53% | test  88.59% | lr 0.0222 | 285.4s
+epoch  16/20 | loss 0.1882 | train  93.50% | test  89.82% | lr 0.0146 | 189.5s
+epoch  17/20 | loss 0.1478 | train  95.03% | test  91.90% | lr 0.0084 | 192.6s
+epoch  18/20 | loss 0.1036 | train  96.57% | test  92.77% | lr 0.0038 | 171.8s
+epoch  19/20 | loss 0.0724 | train  97.68% | test  93.39% | lr 0.0010 | 115.0s
+epoch  20/20 | loss 0.0589 | train  98.14% | test  93.43% | lr 0.0000 | 147.3s
+
+Final FP32 test accuracy: 93.43%  (best epoch 93.43%)
+Total training time: 53.4 min
+Saved checkpoint -> /Users/amnahameed/Downloads/assignment3/checkpoints/resnet18_fp32.pth
+Training log     -> /Users/amnahameed/Downloads/assignment3/logs/baseline_train_log.csv

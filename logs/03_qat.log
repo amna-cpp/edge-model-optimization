@@ -1,0 +1,27 @@
+
+==============================================================================
+  QAT step 1/6 - load pretrained FP32 model
+==============================================================================
+FP32 test accuracy: 93.43%
+
+==============================================================================
+  QAT step 2-3/6 - fuse (train mode) + insert FakeQuantize modules
+==============================================================================
+backend: qnnpack | fake-quant modules inserted: 51 | training device: cpu
+accuracy right after prepare_qat (uncalibrated observers): 93.39%
+
+==============================================================================
+  QAT step 4/6 - fine-tuning with fake quantisation
+==============================================================================
+epoch 1/3 | loss 0.0588 | train 98.03% | fake-quant test 93.23% | 1017s
+epoch 2/3 | loss 0.0572 | train 98.07% | fake-quant test 93.26% | 884s
+epoch 3/3 | loss 0.0466 | train 98.40% | fake-quant test 93.20% | 768s
+
+==============================================================================
+  QAT step 5-6/6 - convert to INT8, evaluate, save
+==============================================================================
+INT8 (QAT) test accuracy : 93.24%   (FP32 93.43%, drop +0.19 pts)
+state_dict checkpoint    : /Users/amnahameed/Downloads/assignment3/checkpoints/resnet18_qat_int8.pth  (11.22 MB)
+TorchScript checkpoint   : /Users/amnahameed/Downloads/assignment3/checkpoints/resnet18_qat_int8_ts.pt  (11.23 MB)
+fake-quant checkpoint    : /Users/amnahameed/Downloads/assignment3/checkpoints/resnet18_qat_fakequant.pth  (for ONNX QDQ export)
+reloaded TorchScript acc : 93.24%  (OK)

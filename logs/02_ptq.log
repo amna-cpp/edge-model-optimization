@@ -1,0 +1,31 @@
+
+==============================================================================
+  PTQ step 1/6 - load FP32 model
+==============================================================================
+FP32 test accuracy: 93.43%  (44.77 MB)
+
+==============================================================================
+  PTQ step 2-3/6 - fuse layers + configure backend
+==============================================================================
+quantisation backend : qnnpack   (supported: ['qnnpack', 'none'])
+weights              : per-channel INT8 (symmetric)
+activations          : UINT8 (histogram observer)
+fused modules        : 9 ConvReLU2d + conv-only (after BN folding)
+observers inserted   : 30
+
+==============================================================================
+  PTQ step 4-5/6 - calibration on training subset
+==============================================================================
+  calibration: 500/2000 images
+  calibration: 1000/2000 images
+  calibration: 1500/2000 images
+  calibration: 2000/2000 images
+calibrated with 2000 training images
+
+==============================================================================
+  PTQ step 6/6 - convert to INT8, evaluate, save
+==============================================================================
+INT8 (PTQ) test accuracy : 93.53%   (FP32 93.43%, drop -0.10 pts)
+state_dict checkpoint    : /Users/amnahameed/Downloads/assignment3/checkpoints/resnet18_ptq_int8.pth  (11.31 MB)
+TorchScript checkpoint   : /Users/amnahameed/Downloads/assignment3/checkpoints/resnet18_ptq_int8_ts.pt  (11.31 MB)
+reloaded TorchScript acc : 93.53%  (OK)

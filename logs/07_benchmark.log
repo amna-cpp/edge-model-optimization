@@ -1,0 +1,37 @@
+
+==============================================================================
+  Benchmarking: FP32 baseline  [resnet18_fp32.pth]
+==============================================================================
+accuracy 93.43% | latency(bs=1) 5.25 ms (p95 6.11) | throughput 176 img/s | size 44.77 MB | sparsity 0.0%
+
+==============================================================================
+  Benchmarking: PTQ INT8  [resnet18_ptq_int8_ts.pt]
+==============================================================================
+accuracy 93.53% | latency(bs=1) 4.39 ms (p95 4.50) | throughput 243 img/s | size 11.31 MB | sparsity 0.0%
+
+==============================================================================
+  Benchmarking: QAT INT8  [resnet18_qat_int8_ts.pt]
+==============================================================================
+accuracy 93.24% | latency(bs=1) 4.36 ms (p95 4.51) | throughput 251 img/s | size 11.22 MB | sparsity 0.0%
+
+==============================================================================
+  Benchmarking: Unstructured pruned  [resnet18_unstructured_pruned.pth]
+==============================================================================
+accuracy 93.47% | latency(bs=1) 5.45 ms (p95 6.66) | throughput 175 img/s | size 44.77 MB | sparsity 90.0%
+
+==============================================================================
+  Benchmarking: Structured pruned  [resnet18_structured_pruned.pth]
+==============================================================================
+accuracy 93.34% | latency(bs=1) 3.52 ms (p95 4.35) | throughput 304 img/s | size 15.72 MB | sparsity 0.0%
+
+==============================================================================
+  SUMMARY
+==============================================================================
+              model  accuracy_pct  acc_drop_vs_fp32_pts  size_mb  size_gzip_mb   params  sparsity_pct  macs_M  latency_bs1_mean_ms  throughput_bs128_img_s  speedup_vs_fp32_bs1
+      FP32 baseline         93.43                  0.00    44.77         41.49 11173962           0.0   555.4                5.253                   175.8                 1.00
+           PTQ INT8         93.53                 -0.10    11.31          9.97 11173962           0.0   555.4                4.395                   242.8                 1.20
+           QAT INT8         93.24                  0.19    11.22          8.83 11173962           0.0   555.4                4.361                   251.4                 1.20
+Unstructured pruned         93.47                 -0.04    44.77          7.09 11173962          90.0   555.4                5.450                   174.8                 0.96
+  Structured pruned         93.34                  0.09    15.72         14.56  3913470           0.0   293.2                3.524                   303.6                 1.49
+
+CSV files written to /Users/amnahameed/Downloads/assignment3/results/

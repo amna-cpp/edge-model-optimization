@@ -1,0 +1,6 @@
+# dataset is downloaded automatically by torchvision (~170 MB) - not committed
+data/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store

@@ -1,0 +1,39 @@
+
+==============================================================================
+  Structured channel pruning | device=mps | baseline acc 93.43%
+==============================================================================
+block        mid channels   kept  removed
+layer1.0               64     48       16   (ratio 25%)
+layer1.1               64     48       16   (ratio 25%)
+layer2.0              128     77       51   (ratio 40%)
+layer2.1              128     77       51   (ratio 40%)
+layer3.0              256    102      154   (ratio 60%)
+layer3.1              256    102      154   (ratio 60%)
+layer4.0              512    154      358   (ratio 70%)
+layer4.1              512    154      358   (ratio 70%)
+
+reconstruction check: max |logit diff| vs masked original = 0.00e+00  (OK)
+new internal widths: [48, 48, 77, 77, 102, 102, 154, 154]
+accuracy right after pruning (no fine-tuning): 30.20%
+
+==============================================================================
+  Fine-tuning pruned network (12 epochs)
+==============================================================================
+    [structured] epoch 1/12 | loss 0.2648 | train 90.84% | test 87.33%
+    [structured] epoch 2/12 | loss 0.2187 | train 92.43% | test 88.50%
+    [structured] epoch 3/12 | loss 0.1966 | train 93.16% | test 88.77%
+    [structured] epoch 4/12 | loss 0.1763 | train 93.95% | test 88.24%
+    [structured] epoch 5/12 | loss 0.1490 | train 94.91% | test 90.52%
+    [structured] epoch 6/12 | loss 0.1233 | train 95.80% | test 91.73%
+    [structured] epoch 7/12 | loss 0.0997 | train 96.61% | test 92.17%
+    [structured] epoch 8/12 | loss 0.0757 | train 97.55% | test 92.49%
+    [structured] epoch 9/12 | loss 0.0547 | train 98.14% | test 93.11%
+    [structured] epoch 10/12 | loss 0.0424 | train 98.70% | test 93.44%
+    [structured] epoch 11/12 | loss 0.0342 | train 99.04% | test 93.48%
+    [structured] epoch 12/12 | loss 0.0328 | train 99.07% | test 93.34%
+
+zero-valued conv1 filters left in rebuilt model: 0 (no masked channels)
+parameters: 11,173,962 -> 3,913,470  (65.0% fewer)
+MACs      : 555.4M -> 293.2M  (47.2% fewer)
+accuracy  : 93.43% -> 30.20% (pruned) -> 93.34% (fine-tuned)
+saved -> /Users/amnahameed/Downloads/assignment3/checkpoints/resnet18_structured_pruned.pth  (15.72 MB)

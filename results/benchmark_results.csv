@@ -1,0 +1,6 @@
+model,key,accuracy_pct,params,nonzero_weights,total_weights,sparsity_pct,macs_M,size_mb,size_gzip_mb,latency_bs1_mean_ms,latency_bs1_p50_ms,latency_bs1_p95_ms,throughput_bs128_img_s,timing_threads,checkpoint,acc_drop_vs_fp32_pts,speedup_vs_fp32_bs1,speedup_vs_fp32_throughput,size_reduction_x,gzip_size_reduction_x
+FP32 baseline,fp32,93.43,11173962,11164352,11164352,0.0,555.4,44.77,41.49,5.253,5.215,6.111,175.8,1,resnet18_fp32.pth,0.0,1.0,1.0,1.0,1.0
+PTQ INT8,ptq,93.53,11173962,11164352,11164352,0.0,555.4,11.31,9.97,4.395,4.382,4.497,242.8,1,resnet18_ptq_int8_ts.pt,-0.1,1.2,1.38,3.96,4.16
+QAT INT8,qat,93.24,11173962,11164352,11164352,0.0,555.4,11.22,8.83,4.361,4.371,4.514,251.4,1,resnet18_qat_int8_ts.pt,0.19,1.2,1.43,3.99,4.7
+Unstructured pruned,unstructured,93.47,11173962,1116436,11164352,90.0,555.4,44.77,7.09,5.45,5.376,6.66,174.8,1,resnet18_unstructured_pruned.pth,-0.04,0.96,0.99,1.0,5.85
+Structured pruned,structured,93.34,3913470,3906176,3906176,0.0,293.2,15.72,14.56,3.524,3.493,4.355,303.6,1,resnet18_structured_pruned.pth,0.09,1.49,1.73,2.85,2.85

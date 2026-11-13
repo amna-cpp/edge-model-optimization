@@ -1,0 +1,20 @@
+input          truth      |      FP32 baseline      |         PTQ INT8        |         QAT INT8        |   Unstructured pruned   |    Structured pruned    
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+test10_airplan -          |   airplane  99.1%         |   airplane  99.1%         |   airplane  98.9%         |   airplane  99.6%         |   airplane  98.2%         
+test25_bird.pn -          |       bird  92.9%         |       bird  92.4%         |       bird  99.7%         |       bird  92.6%         |       bird  99.5%         
+test3_airplane -          |   airplane  82.2%         |   airplane  79.2%         |   airplane  76.2%         |   airplane  99.1%         |   airplane  94.4%         
+FP32 baseline          test10_airplane.png  -> airplane   (99.1%)
+FP32 baseline          test25_bird.png      -> bird       (92.9%)
+FP32 baseline          test3_airplane.png   -> airplane   (82.2%)
+PTQ INT8 (QDQ)         test10_airplane.png  -> airplane   (99.1%)
+PTQ INT8 (QDQ)         test25_bird.png      -> bird       (92.2%)
+PTQ INT8 (QDQ)         test3_airplane.png   -> airplane   (79.2%)
+QAT INT8 (QDQ)         test10_airplane.png  -> airplane   (98.6%)
+QAT INT8 (QDQ)         test25_bird.png      -> bird       (99.7%)
+QAT INT8 (QDQ)         test3_airplane.png   -> airplane   (76.2%)
+Unstructured pruned    test10_airplane.png  -> airplane   (99.6%)
+Unstructured pruned    test25_bird.png      -> bird       (92.6%)
+Unstructured pruned    test3_airplane.png   -> airplane   (99.1%)
+Structured pruned      test10_airplane.png  -> airplane   (98.2%)
+Structured pruned      test25_bird.png      -> bird       (99.5%)
+Structured pruned      test3_airplane.png   -> airplane   (94.4%)

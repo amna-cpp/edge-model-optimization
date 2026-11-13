@@ -1,0 +1,23 @@
+
+==============================================================================
+  Export FP32 / pruned float models
+==============================================================================
+fp32          -> resnet18_fp32.onnx  (44.69 MB)  [onnx checker OK]
+unstructured  -> resnet18_unstructured_pruned.onnx  (44.69 MB)  [onnx checker OK]
+structured    -> resnet18_structured_pruned.onnx  (15.65 MB)  [onnx checker OK]
+
+==============================================================================
+  Export PTQ-INT8 (QDQ re-expression of the converted INT8 model)
+==============================================================================
+PyTorch INT8 accuracy (rebuilt from state_dict): 93.53%
+QDQ twin vs INT8 model on 500 images: argmax agreement 99.6%, mean |logit diff| 0.0171
+ptq           -> resnet18_ptq_int8.onnx  (11.24 MB)  [onnx checker OK]
+  QuantizeLinear: 31 | DequantizeLinear: 60 | Conv: 20 | Gemm/MatMul: 1
+
+==============================================================================
+  Export QAT-INT8 (QDQ re-expression of the converted INT8 model)
+==============================================================================
+PyTorch INT8 accuracy (rebuilt from state_dict): 93.24%
+QDQ twin vs INT8 model on 500 images: argmax agreement 99.8%, mean |logit diff| 0.0293
+qat           -> resnet18_qat_int8.onnx  (11.22 MB)  [onnx checker OK]
+  QuantizeLinear: 31 | DequantizeLinear: 60 | Conv: 20 | Gemm/MatMul: 1

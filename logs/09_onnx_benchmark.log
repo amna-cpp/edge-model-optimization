@@ -1,0 +1,37 @@
+
+==============================================================================
+  ONNX Runtime (CPU, 1 thread): FP32 baseline  [resnet18_fp32.onnx]
+==============================================================================
+accuracy 93.43% | agreement with FP32 ONNX 100.00% | latency 11.29 ms | throughput 93 img/s | 44.69 MB
+
+==============================================================================
+  ONNX Runtime (CPU, 1 thread): PTQ INT8 (QDQ)  [resnet18_ptq_int8.onnx]
+==============================================================================
+accuracy 93.42% | agreement with FP32 ONNX 99.66% | latency 12.05 ms | throughput 91 img/s | 11.24 MB
+
+==============================================================================
+  ONNX Runtime (CPU, 1 thread): QAT INT8 (QDQ)  [resnet18_qat_int8.onnx]
+==============================================================================
+accuracy 93.27% | agreement with FP32 ONNX 97.88% | latency 12.02 ms | throughput 90 img/s | 11.22 MB
+
+==============================================================================
+  ONNX Runtime (CPU, 1 thread): Unstructured pruned  [resnet18_unstructured_pruned.onnx]
+==============================================================================
+accuracy 93.47% | agreement with FP32 ONNX 96.78% | latency 11.28 ms | throughput 93 img/s | 44.69 MB
+
+==============================================================================
+  ONNX Runtime (CPU, 1 thread): Structured pruned  [resnet18_structured_pruned.onnx]
+==============================================================================
+accuracy 93.34% | agreement with FP32 ONNX 95.53% | latency 6.14 ms | throughput 166 img/s | 15.65 MB
+
+==============================================================================
+  ONNX SUMMARY
+==============================================================================
+              model  accuracy_pct  agreement_with_fp32_pct  size_mb  latency_bs1_mean_ms  latency_bs1_p50_ms  latency_bs1_p95_ms  throughput_img_s                         onnx_file  speedup_vs_fp32_bs1
+      FP32 baseline         93.43                   100.00    44.69               11.290              11.274              11.409              92.7                resnet18_fp32.onnx                 1.00
+     PTQ INT8 (QDQ)         93.42                    99.66    11.24               12.048              11.896              12.642              91.1            resnet18_ptq_int8.onnx                 0.94
+     QAT INT8 (QDQ)         93.27                    97.88    11.22               12.016              11.821              11.970              90.2            resnet18_qat_int8.onnx                 0.94
+Unstructured pruned         93.47                    96.78    44.69               11.281              11.270              11.409              92.8 resnet18_unstructured_pruned.onnx                 1.00
+  Structured pruned         93.34                    95.53    15.65                6.140               6.130               6.241             166.4   resnet18_structured_pruned.onnx                 1.84
+
+written: /Users/amnahameed/Downloads/assignment3/results/onnx_benchmark.csv
